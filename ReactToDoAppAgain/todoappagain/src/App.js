@@ -19,6 +19,7 @@ class App extends Component {
     }
     this.addItem = this.addItem.bind(this);
     this.handleInput = this.handleInput.bind(this);
+    this.setUpdate = this.setUpdate.bind(this);
   }
   
   // 入力値を出力用配列に格納する機能(入力・追加機能)
