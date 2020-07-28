@@ -9,6 +9,9 @@ function List(props) {
                 <input type="text" value={item.text} />
             </p>
         </div>})
+    return <div>
+        {list}
+    </div>
 }
 
 export default List;
