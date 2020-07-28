@@ -1,5 +1,6 @@
 import React, { Component} from 'react';
 import './App.css';
+import List from './list';
 
 class App extends Component {
 
@@ -42,7 +43,7 @@ class App extends Component {
       }
     })
   }
-  
+
   render() {
     return (
       <div>
@@ -53,6 +54,8 @@ class App extends Component {
         </form>
         {/* 出力エリア */}
         <p></p>
+        {/* 編集機能、削除機能をつける部分 */}
+        <List items={this.state.items} />
       </div>
     );
   }
