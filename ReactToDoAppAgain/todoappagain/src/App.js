@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import List from './list';
 
 class App extends Component {
 
@@ -19,25 +18,10 @@ class App extends Component {
     }
     this.addItem = this.addItem.bind(this);
     this.handleInput = this.handleInput.bind(this);
-    this.setUpdate = this.setUpdate.bind(this);
+    // this.setUpdate = this.setUpdate.bind(this);
+    // this.deleteItem = this.deleteItem.bind(this);
   }
   
-  // 入力値を出力用配列に格納する機能(入力・追加機能)
-  addItem(event) {
-    event.preventDefault();
-    // 入力値を変数newItemに格納。
-    let newItem = this.state.inputItem;
-    if (newItem.title !== "") {
-      let items = [this.state.items, newItem];
-    this.setState({
-      items: items,
-      inputItem: {
-        title: '',
-        key: ''
-      }
-    })
-    }
-  }
 
   handleInput(event) {
     this.setState({
@@ -48,16 +32,19 @@ class App extends Component {
     })
   }
 
-  // 編集機能
-  setUpdate(title, key) {
-    let items = this.state.items;
-    items.map(item => {
-      if (item.key === key) {
-        item.title = title;
-      }
-    })
+  // 入力値を出力用配列に格納する機能(入力・追加機能)
+  addItem(event) {
+    event.preventDefault();
+    // 入力値を変数newItemに格納。
+    let newItem = this.state.inputItem;
+    console.log(newItem);
+    let newItems = this.state.items.push(newItem);
     this.setState({
-      items: items
+      items: [newItems],
+      inputItem: {
+        title: '',
+        key: ''
+      }
     })
   }
 
@@ -65,15 +52,11 @@ class App extends Component {
     return (
       <div>
         {/* 入力フォームと追加ボタン */}
-        <form onSubmit={this.addItem}>
-          <input type="text" onChange={this.handleInput} value={this.state.inputItem.title}/>
-          <button><span role="img" aria-label="close">➕</span></button>
-        </form>
+          <input type="text" onChange={this.handleInput}
+           value={this.state.inputItem.title}/>
+          <button type="submit" onClick={this.addItem}><span role="img" aria-label="add">➕</span></button>
         {/* 出力エリア */}
-        <p>{this.state.items.title}</p>
-        {/* 編集機能、削除機能をつける部分 */}
-        <List items={this.state.items} setUpdate={this.setUpdate}/>
-      </div>
+        </div>
     );
   }
   
