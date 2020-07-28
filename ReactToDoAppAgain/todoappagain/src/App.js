@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component} from 'react';
 import './App.css';
 
 class App extends Component {
@@ -14,21 +14,49 @@ class App extends Component {
         key: ''
       }
     }
-  }
-}
 
-function App() {
-  return (
-    <div>
-      {/* 入力フォームと追加ボタン */}
-      <form>
-        <input type="text" />
-        <button type="submit">➕</button>
-      </form>
-      {/* 出力エリア */}
-      <p></p>
-    </div>
-  );
+  }
+
+  addItem(event) {
+    event.preventDefault();
+    // 入力値を変数newItemに格納。
+    let newItem = this.state.inputItem;
+    if (newItem.title !== "") {
+      let items = [this.state.items, newItem];
+    this.setState({
+      items: items,
+      inputItem: {
+        title: '',
+        key: ''
+      }
+    })
+    console.log(items);
+    }
+  }
+
+  handleInput(event) {
+    this.setState({
+      inputItem: {
+        title: event.target.value,
+        key: Date.now()
+      }
+    })
+  }
+  
+  render() {
+    return (
+      <div>
+        {/* 入力フォームと追加ボタン */}
+        <form>
+          <input type="text" onSubmit={this.addItem}/>
+          <span role="img" aria-label="close">➕</span>
+        </form>
+        {/* 出力エリア */}
+        <p></p>
+      </div>
+    );
+  }
+  
 }
 
 export default App;
