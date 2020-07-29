@@ -1,61 +1,55 @@
 import React, { Component } from 'react';
 import './App.css';
+import TodoList from './list';
+import Form from './Form';
 
 class App extends Component {
 
   // stateの初期化処理
   constructor(props) {
-    // constructorの後に必須
+    // constructorの後に必須。ないと、Component継承できない。
     super(props);
-    this.state = {
+    let todos = [
       // 出力用配列
-      items: [],
-      // 入力値用配列
-      inputItem: {
-        title: '',
-        key: ''
-      }
+        {
+          id: '0',
+          title: 'パン買う',
+          // delete: 'false'
+        }
+      ]
+    // 最初に呼び出される状態
+    this.state = {
+      todos: todos,
+      countTodo: todos.length
     }
-    this.addItem = this.addItem.bind(this);
-    this.handleInput = this.handleInput.bind(this);
-    // this.setUpdate = this.setUpdate.bind(this);
-    // this.deleteItem = this.deleteItem.bind(this);
-  }
-  
-
-  handleInput(event) {
-    this.setState({
-      inputItem: {
-        title: event.target.value,
-        key: Date.now()
-      }
-    })
   }
 
-  // 入力値を出力用配列に格納する機能(入力・追加機能)
-  addItem(event) {
+  handleSubmit(event) {
     event.preventDefault();
-    // 入力値を変数newItemに格納。
-    let newItem = this.state.inputItem;
-    console.log(newItem);
-    let newItems = this.state.items.push(newItem);
-    this.setState({
-      items: [newItems],
-      inputItem: {
-        title: '',
-        key: ''
-      }
-    })
+    let title = event.target.title.value;
+    let todos = this.state.todos.slice();
+    let countTodo = this.state.countTodo;
+
+    todos.push({
+      id: countTodo,
+      title: title,
+      // delte: false
+    });
+
+    this.setState({ todos })
+    this.setState({ countTodo: countTodo + 1})
+
+    // タスク追加後、入力欄は空欄にする。
+    event.target.title.value='';
   }
 
   render() {
     return (
       <div>
-        {/* 入力フォームと追加ボタン */}
-          <input type="text" onChange={this.handleInput}
-           value={this.state.inputItem.title}/>
-          <button type="submit" onClick={this.addItem}><span role="img" aria-label="add">➕</span></button>
-        {/* 出力エリア */}
+        <Form handleSubmit={this.handleSubmit.bind(this)} />
+        <TodoList
+        todos={this.state.todos}
+        />
         </div>
     );
   }
