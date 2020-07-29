@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import TodoList from './list';
+import ToDoList from './list';
 import Form from './Form';
 
 class App extends Component {
@@ -13,8 +13,7 @@ class App extends Component {
       // 出力用配列
         {
           id: '0',
-          title: 'パン買う',
-          // delete: 'false'
+          title: 'パン買う'
         }
       ]
     // 最初に呼び出される状態
@@ -22,6 +21,7 @@ class App extends Component {
       todos: todos,
       countTodo: todos.length
     }
+
   }
 
   handleSubmit(event) {
@@ -32,8 +32,7 @@ class App extends Component {
 
     todos.push({
       id: countTodo,
-      title: title,
-      // delte: false
+      title: title
     });
 
     this.setState({ todos })
@@ -43,11 +42,12 @@ class App extends Component {
     event.target.title.value='';
   }
 
+
   render() {
     return (
       <div>
         <Form handleSubmit={this.handleSubmit.bind(this)} />
-        <TodoList
+        <ToDoList
         todos={this.state.todos}
         />
         </div>
