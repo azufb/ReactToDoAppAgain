@@ -21,7 +21,7 @@ class App extends Component {
       todos: todos,
       countTodo: todos.length
     }
-
+    
   }
 
   handleSubmit(event) {
@@ -42,6 +42,13 @@ class App extends Component {
     event.target.title.value='';
   }
 
+  deleteItem(id) {
+    let filteredTodos = this.state.todos.filter(todo =>
+      todo.id !== id);
+      this.setState({
+        todos: filteredTodos
+      })
+  }
 
   render() {
     return (
@@ -49,6 +56,7 @@ class App extends Component {
         <Form handleSubmit={this.handleSubmit.bind(this)} />
         <ToDoList
         todos={this.state.todos}
+        deleteItem={this.deleteItem.bind(this)}
         />
         </div>
     );
