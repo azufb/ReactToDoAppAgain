@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import Todo from './Todo';
 
@@ -8,11 +9,12 @@ class ToDoList extends Component {
             /* 複数の要素ができる時には、keyでそれぞれを区別する！ */
             key={todo.id}
             {...todo}
+            handleDelete={this.props.handleDelete}
             />
         )
         return (
                 <p>
-                {todos}
+                    {todos}
                 </p>
         )
     }

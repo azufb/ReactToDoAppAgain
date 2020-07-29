@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 class Todo extends Component {
     render() {
         return (
-            <div id="list">
+            <div>
                 <span>{this.props.id}</span>
-                <span id="task">{this.props.title}</span>
+                <span>{this.props.title}</span>
             </div>
         )
     }
