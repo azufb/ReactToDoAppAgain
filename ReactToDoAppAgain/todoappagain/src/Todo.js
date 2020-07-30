@@ -10,12 +10,12 @@ class Todo extends Component {
             <p>
                 <input key={this.props.id} value={this.props.title}
                  onChange={handleEdit} className="list"/>
-                 <span className="completeBtn"
+                 <button className="completeBtn"
                  onClick={(e) => {
                      e.preventDefault();
                      handleDone(this.props)}}>
-                         {action}</span>
-                <span className="deleteBtn" onClick={deleteTodo}>削除</span>
+                         {action}</button>
+                <button className="deleteBtn" onClick={deleteTodo}>削除</button>
             </p>
         )
     }
