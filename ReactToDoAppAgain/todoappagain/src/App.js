@@ -89,10 +89,10 @@ class App extends Component {
         <p>タスクをクリックすると編集可能です。削除は、最後に一気に！</p>
         <Form handleSubmit={ this.handleSubmit.bind(this) } />
         <ToDoList
-        todos={ this.state.todos }
-        handleEdit={ this.handleEdit.bind(this) }
-        handleDone={ this.handleDone.bind(this) }
-        deleteTodo={ this.deleteTodo.bind(this) }
+          todos={ this.state.todos }
+          handleEdit={ this.handleEdit.bind(this) }
+          handleDone={ this.handleDone.bind(this) }
+          deleteTodo={ this.deleteTodo.bind(this) }
         />
         </div>
     );
