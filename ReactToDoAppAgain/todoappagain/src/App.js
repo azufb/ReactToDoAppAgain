@@ -12,8 +12,8 @@ class App extends Component {
     let todos = [
       // 出力用配列
         {
-          id: '0',
-          title: 'パン買う',
+          id: 0,
+          title: 'サンプル',
           done: false
         }
       ]
@@ -63,6 +63,8 @@ class App extends Component {
     todos[clickTodo.id] = todo;
     
     this.setState({ todos });
+
+
   }
 
   /* 
@@ -84,6 +86,7 @@ class App extends Component {
     return (
       <div>
         <h1>タスク管理</h1>
+        <p>タスクをクリックすると編集可能です。削除は、最後に一気に！</p>
         <Form handleSubmit={ this.handleSubmit.bind(this) } />
         <ToDoList
         todos={ this.state.todos }
