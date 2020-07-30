@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './App.css';
 
 class Todo extends Component {
     render() {
@@ -9,13 +9,13 @@ class Todo extends Component {
         return (
             <p>
                 <input key={this.props.id} value={this.props.title}
-                 onChange={handleEdit} />
-                 <button 
+                 onChange={handleEdit} className="list"/>
+                 <span className="completeBtn"
                  onClick={(e) => {
                      e.preventDefault();
                      handleDone(this.props)}}>
-                         {action}</button>
-                <button onClick={deleteTodo}>削除</button>
+                         {action}</span>
+                <span className="deleteBtn" onClick={deleteTodo}>削除</span>
             </p>
         )
     }
