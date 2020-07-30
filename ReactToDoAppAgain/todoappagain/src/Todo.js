@@ -3,13 +3,13 @@ import React, { Component } from 'react';
 
 class Todo extends Component {
     render() {
-        let {deleteItem} = this.props;
+        let {deleteTodo, handleEdit} = this.props;
         return (
-            <div>
-                <span>{this.props.id}</span>
-                <span>{this.props.title}</span>
-                <span onClick={deleteItem}>削除</span>
-            </div>
+            <p>
+                <input key={this.props.id} value={this.props.title}
+                 onChange={handleEdit}/>
+                <span onClick={deleteTodo}>削除</span>
+            </p>
         )
     }
 }
