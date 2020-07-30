@@ -13,7 +13,8 @@ class App extends Component {
       // 出力用配列
         {
           id: '0',
-          title: 'パン買う'
+          title: 'パン買う',
+          done: false
         }
       ]
     // 最初に呼び出される状態
@@ -32,7 +33,8 @@ class App extends Component {
 
     todos.push({
       id: countTodo,
-      title: title
+      title: title,
+      done: false
     });
 
     this.setState({ todos })
@@ -40,6 +42,27 @@ class App extends Component {
 
     // タスク追加後、入力欄は空欄にする。
     event.target.title.value='';
+  }
+
+  handleEdit(title, id) {
+    let todos = this.state.todos;
+    todos.map(todo => {      
+      if (todo.id === id) {
+        todo.title = title;
+      }
+    })
+    this.setState({
+      todos: todos
+    })
+  }
+
+  handleDone(clickTodo) {
+    let todos = this.state.todos.slice();
+    let todo = todos[clickTodo.id];
+    todo.done = !todo.done;
+    todos[clickTodo.id] = todo;
+    
+    this.setState({ todos });
   }
 
   /* 
@@ -57,26 +80,16 @@ class App extends Component {
       })
   }
 
-  handleEdit(title, id) {
-    let todos = this.state.todos;
-    todos.map(todo => {      
-      if (todo.id === id){
-        todo.title = title;
-      }
-    })
-    this.setState({
-      todos: todos
-    })
-  }
-
   render() {
     return (
       <div>
-        <Form handleSubmit={this.handleSubmit.bind(this)} />
+        <h1>タスク管理</h1>
+        <Form handleSubmit={ this.handleSubmit.bind(this) } />
         <ToDoList
-        todos={this.state.todos}
-        handleEdit={this.handleEdit.bind(this)}
-        deleteTodo={this.deleteTodo.bind(this)}
+        todos={ this.state.todos }
+        handleEdit={ this.handleEdit.bind(this) }
+        handleDone={ this.handleDone.bind(this) }
+        deleteTodo={ this.deleteTodo.bind(this) }
         />
         </div>
     );
