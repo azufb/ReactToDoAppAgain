@@ -1,4 +1,6 @@
 import React from 'react';
+import { createStore } from 'redux';
+import { connect, Provider } from 'react-redux';
 import './App.css';
 import AddForm from './AddForm';
 
