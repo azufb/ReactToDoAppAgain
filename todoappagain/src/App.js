@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import TodoLists from './TodoLists';
 import './App.css';
-import AddForm from './AddForm';
 
 class App extends Component {
   constructor(props) {
@@ -17,7 +15,5 @@ class App extends Component {
     )
   }
 }
-
-App = connect()(App);
 
 export default App;
