@@ -35,7 +35,7 @@ function addReduce(state, action) {
 }
 
 // 削除
-function deleteReduce(state, action) {
+function deleteReduce(state, action, title) {
     let taskList = state.todos.slice(); // 一度、配列をコピーしてから他の処理する。
     let index = taskList.findIndex(todo => todo.title === action.title);
     taskList.splice(index, 1);
