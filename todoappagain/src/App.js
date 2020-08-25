@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import { connect, Provider } from 'react-redux';
+import { connect } from 'react-redux';
+import TodoLists from './TodoLists';
 import './App.css';
 import AddForm from './AddForm';
-
-function mappingState(state) {
-  return state;
-}
 
 class App extends Component {
   constructor(props) {
@@ -17,6 +14,7 @@ class App extends Component {
       <div>
         <h1>Task List</h1>
         <AddForm />
+        <TodoLists />
       </div>
     )
   }

@@ -1,23 +1,41 @@
 import React, { Component } from 'react';
-import { createStore } from 'redux';
-import { connect, Provider } from 'react-redux';
+import { connect　} from 'react-redux';
+import { addTodo } from './Store';
 
 class AddForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            todos: []
+            title: ''
         }
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(event) {
+        this.setState({
+            title: event.target.value
+        });
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+        let action = addTodo(this.state.title);
+        this.props.dispatch(action);
+        this.setState({
+            title: ''
+        });
     }
 
     render() {
         return (
-            <form>
-                <input type='text'  required/>
+            <form onClick={ this.handleSubmit } >
+                <input type='text' onChange={ this.handleChange } 
+                value={ this.state.title } required />
                 <input type='submit' value='ADD' />
             </form>
         )
     }
 }
 
-export default AddForm;
+export default connect((state) => state)(AddForm);
