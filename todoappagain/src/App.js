@@ -13,8 +13,6 @@ class App extends Component {
     return (
       <div>
         <h1>Task List</h1>
-        <AddForm />
-        <TodoLists />
       </div>
     )
   }
