@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
+import Header from './Todo/Header';
+import Form from './Todo/Form';
 
 class App extends Component {
   constructor(props) {
@@ -10,7 +12,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1>Task List</h1>
+        <Header />
+        <Form />
       </div>
     )
   }
