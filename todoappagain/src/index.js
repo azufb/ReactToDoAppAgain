@@ -1,13 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import Todo from './Todo/index';
+import reducer from './store/reducers/index';
+import { createStore } from 'redux';
 import './index.css';
-import App from './App';
+// import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+const store = createStore(reducer);
+
+const app = (
+  <Provider store={ store }>
+    <Todo />
+  </Provider>
+)
 
 // 表示をレンダリング
 ReactDOM.render(
-    <App />,
+  app,
   document.getElementById('root')
 );
 
