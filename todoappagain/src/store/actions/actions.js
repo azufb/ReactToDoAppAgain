@@ -6,28 +6,28 @@ export const addTodo = () => {
     }
 }
 
-export const deleteTodo = () => {
+export const deleteTodo = (todo) => {
     return {
         type: actionTypes.DELETE_TODO,
         todo: todo
     }
 }
 
-export const editTodo = () => {
+export const editTodo = (todo) => {
     return {
         type: actionTypes.EDIT_TODO,
         todo: todo
     }
 }
 
-export const setTitle = () => {
+export const setTitle = (title) => {
     return {
         type: actionTypes.SET_TITLE,
         title: title
     }
 }
 
-export const setError = () => {
+export const setError = (error) => {
     return {
         type: actionTypes.SET_ERROR,
         error: error
