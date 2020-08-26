@@ -2,11 +2,11 @@ import * as actionTypes from '../actions/actionTypes';
 
 // stateの初期値
 const initialState = {
-    todos: [],
-    title: '',
-    todo: '',
-    edit: false,
-    error: ''
+    todos: [], // リスト部分に表示する、todo一覧の配列
+    title: '', // 入力フォームの部分
+    todo: '', // クリックされた値が一旦格納される部分
+    edit: false, // setEditで、true/falseの切替
+    error: '' // 警告文
 }
 
 const todos = (state = initialState, action) => {
