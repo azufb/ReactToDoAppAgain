@@ -46,12 +46,12 @@ const Form = ({ title, setTitle, addTodo, editTodo, edit, error, setError }) => 
     return (
         <Container maxWidth='sm' className={ classes.root }>
             <Grid container alignItems='center'>
-                <Grid todo md={ 12 }>
+                <Grid item md={ 12 }>
                     <TextField value={ title } onChange={handleChange} 
                     error={ !!error } helperText={ error } id='outlined-basic'
                     fullWidth label="Enter Title" multiline variant="outlined" />
                 </Grid>
-                <Grid todo md={ 12 }>
+                <Grid item md={ 12 }>
                     <Button className={ classes.button } variant="contained" 
                     color="primary" onClick={handleClick}>
                         {edit ? "Edit" : "Add"}
