@@ -20,9 +20,8 @@ const useStyles = makeStyles({
     }
 });
 
-function TodoList({ todoList, setTitle, setTodo, setEdit, deleteTodo }) {
+function TodoList({ todos, setTitle, setTodo, setEdit, deleteTodo }) {
     const classes = useStyles();
-
 
     const handleEdit = (todo) => {
         setTitle(todo.value);
@@ -37,12 +36,12 @@ function TodoList({ todoList, setTitle, setTodo, setEdit, deleteTodo }) {
 
     return (
         <Container className={ classes.container } maxWidth='md'>
-            { !todoList.length
+            { !todos.length
                 ?
                 <Typography variant='h6' color='error'>No Data to display</Typography>
                 :
                 (<List>
-                    { todoList.map(todo => {
+                    { todos.map(todo => {
                         return (
                             <ListItem key={ todo.id } button>
                                 <ListItemIcon>
@@ -71,7 +70,7 @@ function TodoList({ todoList, setTitle, setTodo, setEdit, deleteTodo }) {
 
 const mapStateToProps = (state) => {
     return {
-        todoList: state.items
+        todos: state.todos
     }
 }
 
