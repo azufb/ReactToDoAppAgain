@@ -23,8 +23,8 @@ const todos = (state = initialState, action) => {
                 error: ''
             }
         case actionTypes.DELETE_TODO :
-            let newList = [...state.todos];
-            let index = newList.indexOf(state.todo);
+            var newList = [...state.todos];
+            var index = newList.indexOf(state.todo);
             if (index !== -1) {
                 newList.splice(index, 1);
                 return {
