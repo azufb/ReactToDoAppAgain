@@ -25,7 +25,7 @@ const Form = ({ title, setTitle, addTodo, editTodo, edit, error, setError }) => 
 
         setTitle(title);
         if (title.length === 0) {
-            setError('Please type something!');
+            setError('入力してください。');
         } else {
             setError('');
         }
@@ -33,7 +33,7 @@ const Form = ({ title, setTitle, addTodo, editTodo, edit, error, setError }) => 
 
     const handleClick = () => {
         if (title.length === 0) {
-            setError('Please type something!');
+            setError('入力してください。');
             return;
         }
         if (edit) {
@@ -48,7 +48,7 @@ const Form = ({ title, setTitle, addTodo, editTodo, edit, error, setError }) => 
                 <Grid item md={ 12 }>
                     <TextField value={ title } onChange={handleChange} 
                     error={ !!error } helperText={ error } id='outlined-basic'
-                    fullWidth label="Enter Title" multiline variant="outlined" />
+                    fullWidth label="Enter Task" multiline variant="outlined" />
                 </Grid>
                 <Grid item md={ 12 }>
                     <Button className={ classes.button } variant="contained" 
