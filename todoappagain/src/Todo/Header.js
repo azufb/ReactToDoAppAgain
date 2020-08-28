@@ -20,7 +20,7 @@ const Header = () => {
         <AppBar position='static'>
             <Toolbar className={ classes.toolbar }>
                 <Typography className={ classes.heading } variant='h5' align='center'>
-                    Todo App
+                    タスク管理
                 </Typography>
             </Toolbar>
         </AppBar>
