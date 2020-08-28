@@ -46,14 +46,14 @@ const Form = ({ title, setTitle, addTodo, editTodo, edit, error, setError }) => 
         <Container maxWidth='sm' className={ classes.root }>
             <Grid container alignItems='center'>
                 <Grid item md={ 12 }>
-                    <TextField value={ title } onChange={handleChange} 
+                    <TextField value={ title } onChange={ handleChange } 
                     error={ !!error } helperText={ error } id='outlined-basic'
-                    fullWidth label="Enter Task" multiline variant="outlined" />
+                    fullWidth label='Enter Task' multiline variant='outlined' />
                 </Grid>
                 <Grid item md={ 12 }>
-                    <Button className={ classes.button } variant="contained" 
-                    color="primary" onClick={handleClick}>
-                        {edit ? "Edit" : "Add"}
+                    <Button className={ classes.button } variant='contained' 
+                    color='primary' onClick={ handleClick }>
+                        {edit ? 'Edit' : 'Add' }
                     </Button>
                 </Grid>
             </Grid>
