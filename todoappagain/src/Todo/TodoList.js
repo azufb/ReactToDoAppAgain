@@ -4,13 +4,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
+import Checkbox from '@material-ui/core/Checkbox';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 import IconButton from '@material-ui/core/IconButton';
-import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import { connect } from 'react-redux'
 import * as actionTypes from '../store/actions/actions';
 
@@ -36,7 +35,7 @@ function TodoList({ todos, setTitle, setTodo, setEdit, deleteTodo }) {
 
     return (
         <Container className={ classes.container } maxWidth='md'>
-            { !todos.length
+            { todos.length === 0
                 ?
                 <Typography variant='h6' color='error'>No Data to display</Typography>
                 :
@@ -44,10 +43,10 @@ function TodoList({ todos, setTitle, setTodo, setEdit, deleteTodo }) {
                     { todos.map(todo => {
                         return (
                             <ListItem key={ todo.id } button>
-                                <ListItemIcon>
-                                    <CheckCircleIcon color='primary' />
-                                </ListItemIcon>
-
+                                <Checkbox
+                                    color='primary'
+                                    inputProps={{ 'aria-label':'uncontrolled-checkbox' }}
+                                />
                                 <ListItemText primary={ todo.value } />
                                 <ListItemSecondaryAction>
                                     <IconButton edge='end' aria-label='edit'
