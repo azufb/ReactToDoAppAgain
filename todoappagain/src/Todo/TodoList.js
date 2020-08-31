@@ -50,11 +50,11 @@ function TodoList({ todos, setTitle, setTodo, setEdit, deleteTodo }) {
                                 <ListItemText primary={ todo.value } />
                                 <ListItemSecondaryAction>
                                     <IconButton edge='end' aria-label='edit'
-                                    onClick={() => handleEdit(todo)}>
+                                    onClick={ () => handleEdit(todo) }>
                                         <EditIcon />
                                     </IconButton>
                                     <IconButton edge='end' aria-label='delete'
-                                    onClick={() => handleDelete(todo)}>
+                                    onClick={ () => handleDelete(todo) }>
                                         <DeleteIcon />
                                     </IconButton>
                                 </ListItemSecondaryAction>
