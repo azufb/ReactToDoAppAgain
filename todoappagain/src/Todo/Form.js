@@ -53,7 +53,7 @@ const Form = ({ title, setTitle, addTodo, editTodo, edit, error, setError }) => 
                 <Grid item md={ 12 }>
                     <Button className={ classes.button } variant='contained' 
                     color='primary' onClick={ handleClick }>
-                        {edit ? 'Edit' : 'Add' }
+                        {　edit ? 'Edit' : 'Add' }
                     </Button>
                 </Grid>
             </Grid>
